@@ -16,14 +16,16 @@ streamify    = require 'gulp-streamify'
 stylus       = require 'gulp-stylus'
 uglify       = require 'gulp-uglify'
 watchify     = require 'watchify'
+ts           = require 'gulp-typescript'
 
 production   = process.env.NODE_ENV is 'production'
 
 config =
   scripts:
-    source: './src/coffee/main.coffee'
-    extensions: ['.coffee']
+    source: './src/ts/main.ts'
+    extensions: ['.ts']
     destination: './public/js/'
+    destination_dts: './public/tsd/'
     filename: 'bundle.js'
   templates:
     source: './src/jade/*.jade'
@@ -88,7 +90,13 @@ gulp.task 'styles', ->
       .pipe filter '**/*.css'
       .pipe browserSync.reload(stream: true)
 
-  styles
+gulp.task 'scripts', ->
+  tsResult = gulp
+    .src(config.scripts.source).pipe(ts(
+      declarationFiles: true
+      noExternalResolve: true))
+  tsResult.dts.pipe gulp.dest(config.scripts.destination_dts)
+  tsResult.js.pipe gulp.dest(config.scripts.destination)
 
 gulp.task 'assets', ->
   gulp

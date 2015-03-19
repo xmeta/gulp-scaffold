@@ -2,7 +2,8 @@
   "name": "gulp-template",
   "version": "0.0.0",
   "authors": [
-    "Riku Rouvila <riku.rouvila@gmail.com>"
+    "Riku Rouvila <riku.rouvila@gmail.com>",
+    "x_meta <x_meta@example.com>"
   ],
   "license": "MIT",
   "ignore": [

@@ -4,7 +4,7 @@
 ### What it does
 * [Jade](http://jade-lang.com) files to HTML
 * [Stylus](http://learnboost.github.io/stylus) files to CSS
-* [CoffeeScript](http://coffeescript.org/) files to Javascript through [browserify](http://browserify.org/)
+* [TypeScript](http://www.typescriptlang.org/) files to Javascript through [browserify](http://browserify.org/)
     * You are able to use 'require' in your client-side code
 * Serves your static files to localhost:9001
 * Reloads your browser with LiveReload when files change
